@@ -1,0 +1,12 @@
+format = "$character$directory $git_branch "
+
+[directory]
+format = "[$path]($style)"
+truncation_length = 1
+
+[git_branch]
+format = "[git:](blue)[($branch)](red)"
+
+[character]
+success_symbol = "[➜](green)"
+error_symbol = "[➜](red)"

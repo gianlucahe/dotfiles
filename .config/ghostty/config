@@ -1,0 +1,10 @@
+theme = rose-pine
+background = 000000
+shell-integration-features = no-cursor, no-sudo, title
+window-decoration = false
+macos-titlebar-style = hidden 
+font-size=18
+macos-icon=custom-style
+macos-icon-frame=plastic
+macos-icon-ghost-color = FFFFFF
+macos-icon-screen-color = 000000
