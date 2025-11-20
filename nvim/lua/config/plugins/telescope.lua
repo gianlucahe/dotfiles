@@ -31,10 +31,22 @@ return {
         }
       }
 
+      -- Set telescope highlights to match black background
+      vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#000000" })
+      vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#000000" })
+      vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#000000" })
+      vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#000000" })
+      vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "#000000", fg = "#000000" })
+      vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#000000", fg = "#000000" })
+      vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "#000000", fg = "#000000" })
+      vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#000000", fg = "#000000" })
+
       require('telescope').load_extension('fzf')
 
       vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags)
-      vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files)
+      vim.keymap.set('n', '<leader>fd', function()
+        require('telescope.builtin').find_files({ hidden = true })
+      end, {})
       vim.keymap.set("n", "<space>en", function()
         require('telescope.builtin').find_files {
           cwd = vim.fn.stdpath("config")

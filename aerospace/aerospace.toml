@@ -12,7 +12,7 @@ after-login-command = []
 after-startup-command = []
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true 
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -118,6 +118,7 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-b = 'workspace B' # Browsers
+alt-s = 'workspace S' # Slack
 alt-c = 'workspace C' # Chat apps
 alt-d = 'workspace D' # Development
 alt-n = 'workspace N' # Notes
@@ -168,37 +169,44 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-# Event listeners
+## Terminal
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace T'
+if.app-id = 'com.mitchellh.ghostty'
+if.during-aerospace-startup = true
+run = 'move-node-to-workspace P'
 
 ## Chat apps
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace C'
+if.during-aerospace-startup = true
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+if.during-aerospace-startup = true
+run = 'move-node-to-workspace S'
 
 ## Browsers
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+if.app-id = 'net.imput.helium'
+if.during-aerospace-startup = true
 run = 'move-node-to-workspace B'
 
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace B'
+## Notes
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
+if.app-id = 'com.notionlabs.notion'
+if.during-aerospace-startup = true
 run = 'move-node-to-workspace N'
 
-## Development
+## Default workspace for unconfigured apps
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace D'
+if.during-aerospace-startup = true
+run = 'move-node-to-workspace 1'
 
 ## Floaters
 
@@ -210,8 +218,3 @@ run = 'layout floating'
 if.app-id = 'com.1password.1password'
 run = 'layout floating'
 
-## Productivity
-
-[[on-window-detected]]
-if.app-id = 'com.notionlabs.notion'
-run = 'move-node-to-workspace P'

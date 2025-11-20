@@ -1,3 +1,45 @@
 
+# Neovim
+nvim/lazy-lock.json
+nvim/plugin/packer_compiled.lua
+nvim/.vimplugs
+nvim/spell/
+nvim/undo/
+nvim/backup/
+nvim/swap/
+nvim/tags
+
+# SuperMaven (device-specific)
+supermaven/
+
+# GitHub Copilot (device-specific)
 .config/github-copilot/apps.json
+gh/
+
+# Tmux
+tmux/resurrect/
+tmux/resurrect-last.txt
+tmux/.tmux.conf.local
+
+# Shell history
+.zsh_history
+.bash_history
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Local configurations
+.local/
+.cache/
+
+# Device-specific paths
+.config/bin/
+.config/github-copilot/
 
